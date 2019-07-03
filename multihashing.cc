@@ -4,6 +4,8 @@
 #include <stdint.h>
 
 extern "C" {
+    #include "yespower-1.0.1/sha256.h"
+    #include "yespower-1.0.1/yespower.h"
     #include "bcrypt.h"
     #include "blake.h"
     #include "c11.h"
@@ -348,7 +350,29 @@ DECLARE_FUNC(boolberry) {
     SET_BUFFER_RETURN(output, 32);
 }
 
+DECLARE_FUNC(yespower) {
+    DECLARE_SCOPE;
+
+    if (args.Length() < 1)
+        RETURN_EXCEPT("You must provide one argument.");
+
+    Local<Object> target = args[0]->ToObject();
+
+    if(!Buffer::HasInstance(target))
+        RETURN_EXCEPT("Argument should be a buffer object.");
+
+    char * input = Buffer::Data(target);
+    char output[32];
+
+    uint32_t input_len = Buffer::Length(target);
+
+    yespower_hash(input, output, input_len);
+
+    SET_BUFFER_RETURN(output, 32);
+}
+
 DECLARE_INIT(init) {
+    NODE_SET_METHOD(exports, "yespower", yespower);
     NODE_SET_METHOD(exports, "bcrypt", bcrypt);
     NODE_SET_METHOD(exports, "blake", blake);
     NODE_SET_METHOD(exports, "boolberry", boolberry);
