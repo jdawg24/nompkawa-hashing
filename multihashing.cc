@@ -1,38 +1,38 @@
-include <node.h>
-include <node_buffer.h>
-include <v8.h>
-include <stdint.h>
+#include <node.h>
+#include <node_buffer.h>
+#include <v8.h>
+#include <stdint.h>
 
 extern "C" {
-    include "yespower-1.0.1/sha256.h"
-    include "yespower-1.0.1/yespower.h"
-    include "bcrypt.h"
-    include "blake.h"
-    include "c11.h"
-    include "cryptonight.h"
-    include "cryptonight_fast.h"
-    include "fresh.h"
-    include "fugue.h"
-    include "groestl.h"
-    include "hefty1.h"
-    include "keccak.h"
-    include "lbry.h"
-    include "nist5.h"
-    include "quark.h"
-    include "qubit.h"
-    include "scryptjane.h"
-    include "scryptn.h"
-    include "sha1.h"
-    include "sha256d.h"
-    include "shavite3.h"
-    include "skein.h"
-    include "x11.h"
-    include "x13.h"
-    include "x15.h"
-    include "neoscrypt.h"
+    #include "yespower-1.0.1/sha256.h"
+    #include "yespower-1.0.1/yespower.h"
+    #include "bcrypt.h"
+    #include "blake.h"
+    #include "c11.h"
+    #include "cryptonight.h"
+    #include "cryptonight_fast.h"
+    #include "fresh.h"
+    #include "fugue.h"
+    #include "groestl.h"
+    #include "hefty1.h"
+    #include "keccak.h"
+    #include "lbry.h"
+    #include "nist5.h"
+    #include "quark.h"
+    #include "qubit.h"
+    #include "scryptjane.h"
+    #include "scryptn.h"
+    #include "sha1.h"
+    #include "sha256d.h"
+    #include "shavite3.h"
+    #include "skein.h"
+    #include "x11.h"
+    #include "x13.h"
+    #include "x15.h"
+    #include "neoscrypt.h"
 }
 
-include "boolberry.h"
+#include "boolberry.h"
 
 using namespace node;
 using namespace v8;
